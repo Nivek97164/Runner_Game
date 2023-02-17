@@ -1,10 +1,9 @@
-
 body {
     margin: 0;
     height: 100vh;
     display: flex;
     align-items: center;
-} */
+}
 
 /* displaying the game with full screen with and bottom border as the ground */
 .game {
@@ -16,22 +15,22 @@ body {
 /* sticking the dino and the cactus to the floor */
 .dino, .cactus {
     position: absolute;
-    bottom: 0;
+    bottom: 7%;
 }
 
 .dino {
     position: absolute;
     left: 5%;
-    height: 20%;
+    height: 25%;
 }
 
 .cactus {
-    right: 0;
+    right: -10%;
     height: 10%;
 }
 
 .move {
-    animation: cactus-move 6s infinite;
+    animation: cactus-move 6s linear infinite;
 }
 
 @keyframes cactus-move {
@@ -65,8 +64,8 @@ body {
 .score {
     position: absolute;
     font-size: 3vmin;
-    right: 1vmin;
-    top: 1vmin;
+    right: 5vmin;
+    top: 5vmin;
 }
 
 /* .start-screen {
