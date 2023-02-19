@@ -11,12 +11,12 @@ function moveBlock() {
         background.classList.add('backgroundAnimation');
     }
 
-    if (!cactus.classList.contains('move')) {
-        cactus.classList.add('move');
+    if (!cactus.classList.contains('moveCactus')) {
+        cactus.classList.add('moveCactus');
     }
 
-    if (!helico.classList.contains('move')) {
-        helico.classList.add('move');
+    if (!helico.classList.contains('moveHelico')) {
+        helico.classList.add('moveHelico');
     }
 }
 
@@ -62,17 +62,34 @@ function dinoDown(event) {
     }
 }
 
+function dinoCrached() {
+    if (dino = isCrashed) {
+        document.getElementById('dino').setAttribute('src','/img/Die.png');
+    }
+}
+
 function isCrashed() {
     let dinoPosition = dino.getBoundingClientRect();
     let cactusPosition = cactus.getBoundingClientRect();
     let helicoPosition = helico.getBoundingClientRect();
-    return (dinoPosition.right > cactusPosition.left 
+
+
+    console.log({helicoBottom: helicoPosition.bottom, dinoTop: dinoPosition.top, 
+        cactusTop: cactusPosition.top, dinoBottom: dinoPosition.bottom, 
+    })
+
+    let cactusHit = dinoPosition.right > cactusPosition.left 
     && dinoPosition.left < cactusPosition.right 
-    && dinoPosition.bottom > cactusPosition.top) || (
-        dinoPosition.right > helicoPosition.left 
+    && dinoPosition.bottom > cactusPosition.top ;
+
+    let helicoHit =  dinoPosition.right > helicoPosition.left 
     && dinoPosition.left < helicoPosition.right 
-    && dinoPosition.top > helicoPosition.bottom
-    ) ;
+    && dinoPosition.top > helicoPosition.bottom+100 ;
+
+    console.log({cactusHit, helicoHit})
+    //console.log({dinoPosition,cactusPosition,helicoPosition})
+
+    return cactusHit || helicoHit ;
 }
 
 document.getElementById("t").innerHTML = timer_counter;
@@ -107,3 +124,51 @@ function updateTimer(){
 }
 
 setInterval(updateTimer, refresh_time)
+
+
+function readFile(input) {
+    let file = input.files[0]; 
+    let fileReader = new FileReader(); 
+    fileReader.readAsText(file); 
+    fileReader.onload = function() {
+      alert(fileReader.result);
+    }; 
+    fileReader.onerror = function() {
+      alert(fileReader.error);
+    }; 
+  }
+
+
+
+  
+  let myHeaders = new Headers();
+  myHeaders.append("Content-Type", "text/plain");
+
+  let myInit = { method: 'GET',
+                 headers: myHeaders,
+                 mode: 'cors',
+                 cache: 'default' };
+  
+   
+
+    const defaultMapList = [
+        "/maps/test.jmpr", 
+        
+    ];
+
+    if (typeof(localStorage["files"])==="undefined"){
+        localStorage["files"] = "[]";
+
+        let files = JSON.parse(localStorage["files"]);
+        for(let i in defaultMapList){
+            let currentFileName = defaultMapList[i];
+            let resp = await fetch(currentFileName,myInit)
+            let obj = {name:await file.name, data: await resp.text()};
+            files.push(obj);
+            localStorage["files"] = JSON.stringify(files)
+        }
+    }
+
+    console.log(localStorage["files"]);
+
+   

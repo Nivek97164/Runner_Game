@@ -24,23 +24,29 @@ body {
     left: 5%;
     height: 25%;
     bottom: 15%;
+    border: 1px solid brown;
 }
 
 .helico {
-    right: -100%;
+    right: -35%;
     height: 25%;
-    bottom: 35%;;
+    bottom: 45%;
+    border: 1px solid brown;
 }
 
 .cactus {
     right: -10%;
     height: 12%;
-    bottom: 15%;;
+    bottom: 15%;
+    border: 1px solid brown;
 }
 
-.move {
-    animation: cactus-move 6s linear infinite;
-    animation: helico-move 6s linear infinite;
+.moveCactus {
+    animation: cactus-move 15s linear infinite;
+}
+
+.moveHelico {
+    animation: helico-move 30s linear infinite;
 }
 
 @keyframes helico-move {
