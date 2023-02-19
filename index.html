@@ -7,10 +7,31 @@
   <title>Document</title>
   <link rel="stylesheet" href="/CSS/style.css">
   <script src="/JS/main.js" type="module"></script>
+  <style>
+    #background {
+      background: url("img/BGNiv0.png") repeat-x;
+      background-size: cover;
+      position: absolute;
+      height: 120vh;
+      width: 3873px;
+      animation: moveRight 100s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes moveRight {
+      from { background-position: 3873px 0px; } 
+      to { background-position: 0px 0px; }
+    }
+    #background{
+      color: #FFF;
+      padding: 10px;
+    }
+  </style>
 </head>
 <body>
+  <div id="background"></div>
   <div class="world" data-world>
-    <h1 class="score" id = "t"></h1>
+    <h1 class="time" id = "t"></h1>
     <!-- <div class="start-screen" data-start-screen>Press Any Key To Start</div> -->
     <img src="/img/Run.png" class="dino" id="dino"data-dino>
     <img id="cactus" class="cactus" src="/img/Bush2.png" alt="cactus">

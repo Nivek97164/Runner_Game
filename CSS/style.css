@@ -3,6 +3,7 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
+    overflow: hidden;
 }
 
 /* displaying the game with full screen with and bottom border as the ground */
@@ -15,18 +16,20 @@ body {
 /* sticking the dino and the cactus to the floor */
 .dino, .cactus {
     position: absolute;
-    bottom: 7%;
+    bottom: 20%;
 }
 
 .dino {
     position: absolute;
     left: 5%;
     height: 25%;
+    bottom: 15%;
 }
 
 .cactus {
     right: -10%;
-    height: 10%;
+    height: 12%;
+    bottom: 15%;;
 }
 
 .move {
