@@ -3,7 +3,7 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 /* displaying the game with full screen with and bottom border as the ground */
@@ -23,22 +23,22 @@ body {
     position: absolute;
     left: 5%;
     height: 25%;
-    bottom: 15%;
-    border: 1px solid brown;
+    bottom: 11%;
+    /* border: 1px solid brown; */
 }
 
-.helico {
+/* .helico {
     right: -35%;
     height: 25%;
     bottom: 45%;
     border: 1px solid brown;
-}
+} */
 
 .cactus {
     right: -10%;
     height: 12%;
-    bottom: 15%;
-    border: 1px solid brown;
+    bottom: 10%;
+    /* border: 1px solid brown; */
 }
 
 .moveCactus {
